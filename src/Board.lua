@@ -36,7 +36,7 @@ board.run = function (arguments)
         for i = 1, textLength do
             screen.clear()
 
-            screen.setCursorPos(displayWidth - )
+            --screen.setCursorPos(displayWidth - )
 
             screen.setCursorPos(1, displayHeight / 2)
             local displayText = finalText:sub(i, textLength) .. finalText:sub(1, i - 1)
