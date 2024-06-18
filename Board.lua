@@ -25,6 +25,8 @@ function LoadConfig()
 end
 
 board.run = function (arguments)
+    LoadConfig()
+
     local finalText = Config.message
 
     while #finalText < displayWidth do
@@ -52,7 +54,7 @@ board.update = function (arguments)
         local F = fs.open("/version.txt", "r")
         LocalVersion = F.readAll()
         F.close()
-        if currentVersion > LocalVersion or arguments[0] == "force" then
+        if currentVersion > LocalVersion or arguments[1] == "force" then
             term.setTextColor(colors.red)
             print("Display Board is out of date!")
             print("Updating now!")
