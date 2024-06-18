@@ -2,36 +2,46 @@
 
 local args = {...}
 local board = {}
--- dont forget 1 padding
-local gcx = 1; --global cursor pos
-
 local baseRepoURL = "http://raw.githubusercontent.com/LeakedBuffalo7907/CCT-DisplayBoard/main"
 local screen = peripheral.find("monitor")
+if not screen then
+    error("No Monitor Attached")
+end
+
+
+-- dont forget 1 padding
+local DisplayWidth,DisplayHeight = screen.getSize()
+local Config = {}
+
+function LoadConfig()
+
+    local handle = io.open("./Config.json", "r")
+
+    local rawJson = handle:read("*a")
+
+    Config = textutils.unserialiseJSON(rawJson)
+
+    handle:close()
+end
 
 board.run = function (arguments)
-    --local x, y = term.getSize()
-    --term.write(tostring(x) .. "\n")
-    --term.write(tostring(y) .. "\n")
+    local finalText = Config.message
 
-    --local handle = io.open("./Config.json", "r")
-
-    ---local rawJson = handle:read("*a")
-
-    --local jsonParse = textutils.unserialiseJSON(rawJson)
-    --term.write(jsonParse.message .. "\n")
-
-    --handle:close()
+    while #finalText < displayWidth do
+        finalText = finalText .. " "
+    end
+    
+    local textLength = #finalText
 
     while true do
-        --screen.clear()
-        local cx,cy = term.getCursorPos()
-        screen.setCursorPos(gcx+1, cy)
-        screen.write("Test")
-        screen.setCursorPos(gcx+1, cy)
-        sleep(1)
+        for i = 1, textLength do
+            screen.clear()
+            screen.setCursorPos(1, displayHeight / 2)
+            local displayText = finalText:sub(i, textLength) .. finalText:sub(1, i - 1)
+            screen.write(displayText:sub(1, displayWidth))
+            sleep(Config.scrollTime)
+        end
     end
-
-    
 end
 
 board.update = function (arguments)
