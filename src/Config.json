@@ -1,12 +1,12 @@
 {
     "title": {
         "text": "Example Shop",
-        "color": "16384"
+        "color": 16384
     },
     "message": {
         "text": "Now Selling Your Mom",
-        "color": "32"
+        "color": 32
     },
     "scrollTime": 0.6,
-    "backgroundColor": "32768"
+    "backgroundColor": 32768
 }
