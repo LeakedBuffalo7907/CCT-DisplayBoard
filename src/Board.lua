@@ -29,6 +29,7 @@ board.run = function (arguments)
     end
     
     local textLength = #finalMessage
+    screen.setTextScale(2);
 
     while true do
         for i = 1, textLength do
@@ -36,7 +37,7 @@ board.run = function (arguments)
 
             screen.setTextColor(Config.title.color)
             screen.setBackgroundColor(Config.backgroundColor)
-            screen.setCursorPos((displayWidth / 2) - (#Config.title.text / 2), displayHeight / 1.5)
+            screen.setCursorPos((displayWidth / 2) - (#Config.title.text / 2), displayHeight / 3) + 1
             screen.write(Config.title.text)
             
             screen.setTextColor(Config.message.color)
