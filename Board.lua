@@ -22,10 +22,10 @@ board.run = function (arguments)
     --handle:close()
 
     while true do
-        screen.clear()
-        local cx,cy = term.getCursorPos();
-        screen.setCursorPos(gcx, cy)
-        screen.write("Test\n")
+        --screen.clear()
+        --local cx,cy = term.getCursorPos();
+        --screen.setCursorPos(gcx, cy)
+        screen.print("Test\n")
         sleep(1)
     end
 
