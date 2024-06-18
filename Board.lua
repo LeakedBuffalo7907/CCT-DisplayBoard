@@ -2,10 +2,11 @@
 
 local args = {...}
 local board = {}
-local gcx = 0; --global cursor pos
+-- dont forget 1 padding
+local gcx = 1; --global cursor pos
 
 local baseRepoURL = "http://raw.githubusercontent.com/LeakedBuffalo7907/CCT-DisplayBoard/main"
-local screen = peripheral.wrap("top")
+local screen = peripheral.find("monitor")
 
 board.run = function (arguments)
     --local x, y = term.getSize()
@@ -25,7 +26,8 @@ board.run = function (arguments)
         --screen.clear()
         local cx,cy = term.getCursorPos()
         screen.setCursorPos(gcx+1, cy)
-        screen.print("Test")
+        screen.write("Test")
+        screen.setCursorPos(gcx+1, cy)
         sleep(1)
     end
 
@@ -40,7 +42,7 @@ board.update = function (arguments)
         local F = fs.open("/version.txt", "r")
         LocalVersion = F.readAll()
         F.close()
-        if currentVersion > LocalVersion then
+        if currentVersion > LocalVersion or arguments[0] == "force" then
             term.setTextColor(colors.red)
             print("Display Board is out of date!")
             print("Updating now!")
