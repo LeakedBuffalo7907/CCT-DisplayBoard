@@ -23,7 +23,7 @@ board.run = function (arguments)
 
     while true do
         --screen.clear()
-        local cx,cy = term.getCursorPos();
+        local cx,cy = term.getCursorPos()
         screen.setCursorPos(gcx+1, cy)
         screen.print("Test")
         sleep(1)
