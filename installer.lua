@@ -35,7 +35,7 @@ end
 downloadFile("/", "version.txt")
 checkFile("/", "Config.json") --TODO: add config versions for legacy checks
 downloadFile("/", "Board.lua")
-downloadFile("/", "startup.lua")
+--downloadFile("/", "startup.lua")
 term.setTextColor(colors.blue)
 print("Display Board Installed " .. currentVersion)
 term.setTextColor(colors.white)
