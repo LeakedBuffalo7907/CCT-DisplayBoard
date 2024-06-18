@@ -30,7 +30,7 @@ board.run = function (arguments)
         finalMessage = finalMessage .. " "
     end
     
-    local textLength = #finalText
+    local textLength = #finalMessage
 
     while true do
         for i = 1, textLength do
@@ -39,7 +39,7 @@ board.run = function (arguments)
             --screen.setCursorPos(displayWidth - )
 
             screen.setCursorPos(1, displayHeight / 2)
-            local displayText = finalText:sub(i, textLength) .. finalText:sub(1, i - 1)
+            local displayText = finalMessage:sub(i, textLength) .. finalMessage:sub(1, i - 1)
             screen.write(displayText:sub(1, displayWidth))
             sleep(Config.scrollTime)
         end
