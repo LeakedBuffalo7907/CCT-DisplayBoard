@@ -38,7 +38,7 @@ board.run = function (arguments)
 
             screen.setTextColor(utils.hexToColor(Config.title.color))
             screen.setBackgroundColor(utils.hexToColor(Config.backgroundColor))
-            screen.setCursorPos((displayWidth / 2) - (#Config.message.title / 2), displayHeight / 1.5)
+            screen.setCursorPos((displayWidth / 2) - (#Config.message.text / 2), displayHeight / 1.5)
             screen.write(Config.title.text)
             
             screen.setTextColor(utils.hexToColor(Config.message.color))
