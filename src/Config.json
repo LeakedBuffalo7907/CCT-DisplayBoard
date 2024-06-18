@@ -1,10 +1,12 @@
 {
-    "titleText": "Example Shop",
-    "titleColor": "ff0000",
-
-    "messageText": "Now Selling Your Mom",
-    "messageColor": "ff00ff",
-    
-    "backgroundColor": "00ffff",
-    "scrollTime": 0.6
+    "title": {
+        "text": "Example Shop",
+        "color": "ff0000"
+    },
+    "message": {
+        "text": "Now Selling Your Mom",
+        "color": "ff00ff"
+    },
+    "scrollTime": 0.6,
+    "backgroundColor": "00ffff"
 }

@@ -24,7 +24,7 @@ end
 board.run = function (arguments)
     LoadConfig()
 
-    local finalMessage = Config.messageText
+    local finalMessage = Config.message.text
 
     while #finalMessage < displayWidth do
         finalMessage = finalMessage .. " "
@@ -36,12 +36,12 @@ board.run = function (arguments)
         for i = 1, textLength do
             screen.clear()
 
-            screen.setTextColor(utils.hexToColor(Config.titleColor))
+            screen.setTextColor(utils.hexToColor(Config.title.color))
             screen.setBackgroundColor(utils.hexToColor(Config.backgroundColor))
-            screen.setCursorPos((displayWidth / 2) - (#Config.titleText / 2), displayHeight / 1.5)
-            screen.write(Config.titleText)
+            screen.setCursorPos((displayWidth / 2) - (#Config.title.text / 2), displayHeight / 1.5)
+            screen.write(Config.title.text)
             
-            screen.setTextColor(utils.hexToColor(Config.messageColor))
+            screen.setTextColor(utils.hexToColor(Config.message.color))
             screen.setCursorPos(1, displayHeight / 2)
             local displayText = finalMessage:sub(i, textLength) .. finalMessage:sub(1, i - 1)
             screen.write(displayText:sub(1, displayWidth))
