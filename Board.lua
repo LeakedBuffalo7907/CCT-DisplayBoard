@@ -8,9 +8,7 @@ if not screen then
     error("No Monitor Attached")
 end
 
-
--- dont forget 1 padding
-local DisplayWidth,DisplayHeight = screen.getSize()
+local displayWidth,displayHeight = screen.getSize()
 local Config = {}
 
 function LoadConfig()
