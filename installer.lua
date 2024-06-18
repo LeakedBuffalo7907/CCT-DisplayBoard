@@ -16,9 +16,9 @@ local function downloadFile(source, path, name)
     term.setTextColor(colors.white)
 end
 
-local function checkFile(path, name) 
+local function checkFile(source, path, name) 
     if not fs.exists(path .. name) then
-        downloadFile(path, name)
+        downloadFile(source, path, name)
     end
 end
 
