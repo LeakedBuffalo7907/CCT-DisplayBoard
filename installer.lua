@@ -1,13 +1,15 @@
 local baseRepoURL = "http://raw.githubusercontent.com/LeakedBuffalo7907/CCT-DisplayBoard/main"
 
-local function downloadFile(path, name)
+
+
+local function downloadFile(source, path, name)
     local status = "Downloaded"
     if fs.exists(path .. name) then
         fs.delete(path .. name)
         status = "Updated"
     end
     local F = fs.open(path .. name, "w")
-    F.write(http.get(baseRepoURL .. path .. name).readAll())
+    F.write(http.get(baseRepoURL .. source .. name).readAll())
     F.close()
     term.setTextColor(colors.lime)
     print(name .. " " .. status)
@@ -21,7 +23,7 @@ local function checkFile(path, name)
 end
 
 local uptodate = false
-local webversion = http.get(baseRepoURL .. "/version.txt")
+local webversion = http.get(baseRepoURL .. "/src/version.txt")
 local currentVersion = webversion.readAll()
 webversion.close()
 local oldUser = fs.exists("/version.txt")
@@ -32,10 +34,10 @@ else
     print("Installing now")
 end
 
-downloadFile("/", "version.txt")
-checkFile("/", "Config.json") --TODO: add config versions for legacy checks
-downloadFile("/", "Board.lua")
---downloadFile("/", "startup.lua")
+downloadFile("/src", "/", "version.txt")
+checkFile("/src", "/", "Config.json") --TODO: add config versions for legacy checks
+downloadFile("/src", "/", "Board.lua")
+--downloadFile("/", "/", "startup.lua")
 term.setTextColor(colors.blue)
 print("Display Board Installed " .. currentVersion)
 term.setTextColor(colors.white)

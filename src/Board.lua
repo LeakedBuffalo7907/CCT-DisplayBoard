@@ -1,8 +1,7 @@
-
+local utils = require("./libs/utils")
 
 local args = {...}
 local board = {}
-local baseRepoURL = "http://raw.githubusercontent.com/LeakedBuffalo7907/CCT-DisplayBoard/main"
 local screen = peripheral.find("monitor")
 if not screen then
     error("No Monitor Attached")
@@ -25,10 +24,10 @@ end
 board.run = function (arguments)
     LoadConfig()
 
-    local finalText = Config.message
+    local finalMessage = Config.message
 
-    while #finalText < displayWidth do
-        finalText = finalText .. " "
+    while #finalMessage < displayWidth do
+        finalMessage = finalMessage .. " "
     end
     
     local textLength = #finalText
@@ -36,6 +35,9 @@ board.run = function (arguments)
     while true do
         for i = 1, textLength do
             screen.clear()
+
+            screen.setCursorPos(displayWidth - )
+
             screen.setCursorPos(1, displayHeight / 2)
             local displayText = finalText:sub(i, textLength) .. finalText:sub(1, i - 1)
             screen.write(displayText:sub(1, displayWidth))
@@ -46,7 +48,9 @@ end
 
 board.update = function (arguments)
     if fs.exists("/version.txt") then
-        local webversion = http.get(baseRepoURL .. "/version.txt")
+        local baseRepoURL = "http://raw.githubusercontent.com/LeakedBuffalo7907/CCT-DisplayBoard/main"
+
+        local webversion = http.get(baseRepoURL .. "/src/version.txt")
         local currentVersion = webversion.readAll()
         webversion.close()
         local F = fs.open("/version.txt", "r")
