@@ -32,7 +32,7 @@ board.run = function (arguments)
     
 end
 
-board.update = function (arguments) {
+board.update = function (arguments)
     if fs.exists("/version.txt") then
         local webversion = http.get(baseRepoURL .. "/version.txt")
         local currentVersion = webversion.readAll()
@@ -51,7 +51,7 @@ board.update = function (arguments) {
             term.setTextColor(colors.white)
         end
     end
-}
+end
   
 command = table.remove(args, 1)
   
