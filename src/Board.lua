@@ -1,5 +1,3 @@
-local utils = require("./libs/utils")
-
 local args = {...}
 local board = {}
 local screen = peripheral.find("monitor")
@@ -36,12 +34,12 @@ board.run = function (arguments)
         for i = 1, textLength do
             screen.clear()
 
-            screen.setTextColor(utils.hexToColor(Config.title.color))
-            screen.setBackgroundColor(utils.hexToColor(Config.backgroundColor))
+            screen.setTextColor(Config.title.color)
+            screen.setBackgroundColor(Config.backgroundColor)
             screen.setCursorPos((displayWidth / 2) - (#Config.title.text / 2), displayHeight / 1.5)
             screen.write(Config.title.text)
             
-            screen.setTextColor(utils.hexToColor(Config.message.color))
+            screen.setTextColor(Config.message.color)
             screen.setCursorPos(1, displayHeight / 2)
             local displayText = finalMessage:sub(i, textLength) .. finalMessage:sub(1, i - 1)
             screen.write(displayText:sub(1, displayWidth))
