@@ -29,7 +29,6 @@ board.run = function (arguments)
     end
     
     local textLength = #finalMessage
-    screen.setTextScale(1);
 
     while true do
         for i = 1, textLength do
