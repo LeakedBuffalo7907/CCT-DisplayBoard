@@ -24,7 +24,7 @@ board.run = function (arguments)
 
     local finalMessage = Config.message.text
 
-    while #finalMessage < displayWidth do
+    while #finalMessage < (displayWidth / 2) do
         finalMessage = finalMessage .. " "
     end
     
@@ -37,13 +37,13 @@ board.run = function (arguments)
 
             screen.setTextColor(Config.title.color)
             screen.setBackgroundColor(Config.backgroundColor)
-            screen.setCursorPos(((displayWidth / 2) - (#Config.title.text / 2)) + 1, displayHeight / 3)
+            screen.setCursorPos((((displayWidth / 2) / 2) - (#Config.title.text / 2)) + 1, (displayHeight / 2) / 3)
             screen.write(Config.title.text)
             
             screen.setTextColor(Config.message.color)
-            screen.setCursorPos(1, displayHeight / 2)
+            screen.setCursorPos(1, (displayHeight / 2) / 2)
             local displayText = finalMessage:sub(i, textLength) .. finalMessage:sub(1, i - 1)
-            screen.write(displayText:sub(1, displayWidth))
+            screen.write(displayText:sub(1, (displayWidth / 2)))
             sleep(Config.scrollTime)
         end
     end
